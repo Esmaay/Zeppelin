@@ -23,10 +23,12 @@ COPY --chown=node:node . /zeppelin
 
 # Build backend
 WORKDIR /zeppelin/backend
+RUN npm install
 RUN npm run build
 
 # Build dashboard
 WORKDIR /zeppelin/dashboard
+RUN npm install
 RUN npm run build
 
 # Prune dev dependencies
